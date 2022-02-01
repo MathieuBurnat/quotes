@@ -1,6 +1,6 @@
 # Quotes
 
-Api random qui utilise une Quote aléatoire lorsqu'on clique sur un bouton.
+Random quote on refresh
 
 [Quotes](https://api.quotable.io/random)
 
