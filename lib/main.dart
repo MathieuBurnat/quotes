@@ -72,8 +72,17 @@ class _MyAppState extends State<MyApp> {
             future: futureQuote,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(
-                    snapshot.data!.content + " - " + snapshot.data!.author);
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(snapshot.data!.content,
+                        style: DefaultTextStyle.of(context)
+                            .style
+                            .apply(fontSizeFactor: 2.0)),
+                    Text(snapshot.data!.author),
+                  ],
+                );
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }
