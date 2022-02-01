@@ -53,8 +53,6 @@ class _MyAppState extends State<MyApp> {
   int _counter = 0;
 
   void _incrementCounter() {
-    _refreshQuote();
-
     setState(() {
       _counter++;
     });
@@ -62,6 +60,7 @@ class _MyAppState extends State<MyApp> {
 
   void _refreshQuote() {
     futureQuote = fetchQuote();
+    _incrementCounter();
   }
 
   @override
@@ -107,7 +106,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
+          onPressed: _refreshQuote,
           tooltip: 'Increment',
           child: const Icon(Icons.sync),
         ),
