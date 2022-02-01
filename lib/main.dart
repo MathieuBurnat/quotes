@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -49,6 +50,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
+  Future<http.Response> fetchQuotes() {
+    return http.get(Uri.parse('https://api.quotable.io/random'));
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -110,6 +115,29 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class Quote {
+  final int id;
+  final String content;
+  final String author;
+  final String authorSlug;
+
+  const Quote({
+    required this.id,
+    required this.content,
+    required this.author,
+    required this.authorSlug,
+  });
+
+  factory Quote.fromJson(Map<String, dynamic> json) {
+    return Quote(
+      id: json['_id'],
+      content: json['content'],
+      author: json['author'],
+      authorSlug: json['authorSlug'],
     );
   }
 }

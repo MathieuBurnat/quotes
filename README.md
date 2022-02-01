@@ -1,6 +1,8 @@
-# quotes
+# Quotes
 
-A new Flutter project.
+Api random qui utilise une Quote aléatoire lorsqu'on clique sur un bouton.
+
+[Quotes](https://api.quotable.io/random)
 
 ## Getting Started
 
