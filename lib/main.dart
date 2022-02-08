@@ -20,16 +20,16 @@ Future<Quote> fetchQuote() async {
   }
 }
 
-void main() => runApp(const MyApp());
+void main() => runApp(const Quotes());
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Quotes extends StatefulWidget {
+  const Quotes({Key? key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
+  _QuotesState createState() => _QuotesState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _QuotesState extends State<Quotes> {
   late Future<Quote> futureQuote;
 
   int _counter = 0;
